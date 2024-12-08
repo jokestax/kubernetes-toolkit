@@ -15,11 +15,11 @@ builds:
       - -trimpath
     ldflags:
       - -s -w -extldflags "-static"
-      - -X github.com/konstructio/kubernetes-toolkit/internal/common.Version={{.Version}}
+      - -X github.com/jokestax/kubernetes-toolkit/internal/common.Version={{.Version}}
 
 dockers:
   - image_templates:
-      - "ghcr.io/konstructio/kubernetes-toolkit:{{ .Tag }}-amd64"
+      - "ghcr.io/jokestax/kubernetes-toolkit:{{ .Tag }}-amd64"
     goos: linux
     goarch: amd64
     use: buildx
@@ -27,14 +27,14 @@ dockers:
       - "--platform=linux/amd64"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }} version {{ .Version }}. See release notes at https://github.com/patrickdappollonio/{{ .ProjectName }}/releases/tag/v{{ .RawVersion }}"
-      - "--label=org.opencontainers.image.url=https://github.com/konstructio/{{ .ProjectName }}"
-      - "--label=org.opencontainers.image.source=https://github.com/konstructio/{{ .ProjectName }}"
+      - "--label=org.opencontainers.image.url=https://github.com/jokestax/{{ .ProjectName }}"
+      - "--label=org.opencontainers.image.source=https://github.com/jokestax/{{ .ProjectName }}"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - '--label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}'
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
   
   - image_templates:
-      - "ghcr.io/konstructio/kubernetes-toolkit:{{ .Tag }}-arm64"
+      - "ghcr.io/jokestax/kubernetes-toolkit:{{ .Tag }}-arm64"
     goos: linux
     goarch: arm64
     use: buildx
@@ -42,23 +42,23 @@ dockers:
       - "--platform=linux/arm64"
       - "--label=org.opencontainers.image.title={{ .ProjectName }}"
       - "--label=org.opencontainers.image.description={{ .ProjectName }} version {{ .Version }}. See release notes at https://github.com/patrickdappollonio/{{ .ProjectName }}/releases/tag/v{{ .RawVersion }}"
-      - "--label=org.opencontainers.image.url=https://github.com/konstructio/{{ .ProjectName }}"
-      - "--label=org.opencontainers.image.source=https://github.com/konstructio/{{ .ProjectName }}"
+      - "--label=org.opencontainers.image.url=https://github.com/jokestax/{{ .ProjectName }}"
+      - "--label=org.opencontainers.image.source=https://github.com/jokestax/{{ .ProjectName }}"
       - "--label=org.opencontainers.image.version={{ .Version }}"
       - '--label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}'
       - "--label=org.opencontainers.image.revision={{ .FullCommit }}"
 
 docker_manifests:
-  - name_template: "ghcr.io/konstructio/kubernetes-toolkit:v{{ .RawVersion }}"
+  - name_template: "ghcr.io/jokestax/kubernetes-toolkit:v{{ .RawVersion }}"
     image_templates:
-      - "ghcr.io/konstructio/kubernetes-toolkit:{{ .Tag }}-amd64"
-      - "ghcr.io/konstructio/kubernetes-toolkit:{{ .Tag }}-arm64"
-  - name_template: "ghcr.io/konstructio/kubernetes-toolkit:v{{ .Major }}"
+      - "ghcr.io/jokestax/kubernetes-toolkit:{{ .Tag }}-amd64"
+      - "ghcr.io/jokestax/kubernetes-toolkit:{{ .Tag }}-arm64"
+  - name_template: "ghcr.io/jokestax/kubernetes-toolkit:v{{ .Major }}"
     image_templates:
-      - "ghcr.io/konstructio/kubernetes-toolkit:{{ .Tag }}-amd64"
-      - "ghcr.io/konstructio/kubernetes-toolkit:{{ .Tag }}-arm64"
-  - name_template: "ghcr.io/konstructio/kubernetes-toolkit:latest"
+      - "ghcr.io/jokestax/kubernetes-toolkit:{{ .Tag }}-amd64"
+      - "ghcr.io/jokestax/kubernetes-toolkit:{{ .Tag }}-arm64"
+  - name_template: "ghcr.io/jokestax/kubernetes-toolkit:latest"
     image_templates:
-      - "ghcr.io/konstructio/kubernetes-toolkit:{{ .Tag }}-amd64"
-      - "ghcr.io/konstructio/kubernetes-toolkit:{{ .Tag }}-arm64"
+      - "ghcr.io/jokestax/kubernetes-toolkit:{{ .Tag }}-amd64"
+      - "ghcr.io/jokestax/kubernetes-toolkit:{{ .Tag }}-arm64"
 
