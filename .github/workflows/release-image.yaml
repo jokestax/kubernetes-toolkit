@@ -1,9 +1,7 @@
 name: release container image
 
-on:
-  push:
-    tags:
-      - '*'
+on: [push]
+
 permissions:
   packages: write
 
